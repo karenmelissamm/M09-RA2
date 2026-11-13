@@ -4,14 +4,12 @@ public class Fils extends Thread {
 
     private  final int delay;
     private final int count;
-    private  final String final_;
 
-    public Fils(String nom, int prioritat, int delay, int count, String final_){
+    public Fils(String nom, int prioritat, int delay, int count){
         super(nom);
         setPriority(prioritat);
         this.delay=delay;
         this.count=count;
-        this.final_=final_;
     }
     @Override 
     public void run(){
