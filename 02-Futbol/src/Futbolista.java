@@ -1,18 +1,16 @@
 public class Futbolista extends Thread{
-    private final int NUM_JUGADORS=11;
-    private final int NUM_TIRADES=20;
-    private final Float PROBABILITAT=0.5f;
+    private static final int NUM_JUGADORS=11;
+    private static final int NUM_TIRADES=20;
+    private static final Float PROBABILITAT=0.5f;
 
     private int ngols;
     private int ntirades;
     
-    public Futbolista(){}
-    public Futbolista(int ngols,int ntirades){
+    public Futbolista(String nom){
         super.getName();
         ngols=0;
         ntirades=0;
     }
-    
     public int getNgols() {
         return ngols;
     }
@@ -25,41 +23,25 @@ public class Futbolista extends Thread{
     public void setNtirades(int ntirades) {
         this.ntirades = ntirades;
     }
+    @Override 
+    public void run(){
+        for (int i = 0; i <=9; i++) {
+            System.out.println(getName()+" "+i);
+            long c=0;
+            for (int j = 0; j < ; c++) {
+            }
+        }
     public static void main(String[] args) {
-        Futbolista pique= new Futbolista();
-        Futbolista vinicius= new Futbolista();
-        Futbolista torres= new Futbolista();
-        Futbolista ramos= new Futbolista();
-        Futbolista ronaldo= new Futbolista();
-        Futbolista lewan= new Futbolista();
-        Futbolista belli= new Futbolista();
-        Futbolista arnau= new Futbolista();
-        Futbolista aspas= new Futbolista();
-        Futbolista messi= new Futbolista();
-        Futbolista mbape= new Futbolista();
-        pique.setName("Pique");
-        vinicius.setName("Vinicius");
-        torres.setName("Torres");
-        ramos.setName("Ramos");
-        ronaldo.setName("Ronaldo");
-        lewan.setName("Lewan");
-        belli.setName("Belli");
-        arnau.setName("Arnau");
-        aspas.setName("Aspas");
-        messi.setName("Messi");
-        mbape.setName("MBapé");
+        String [] nomFutbolista={"Pique","Vinicius","Torres","Ramos","Ronaldo","Lewan","Belli", "Arnau", "Aspas", "Messi","MBape"};
+        Futbolista[] jugadores= new Futbolista[NUM_JUGADORS];
+        for (int i = 0; i < NUM_JUGADORS; i++) {
+            jugadores[i]=new Futbolista(nomFutbolista[i]);
+            jugadores[i].start();
+        }
 
-        pique.start();
-        vinicius.start();
-        torres.start();
-        ramos.start();
-        ronaldo.start();
-        lewan.start();
-        belli.start();
-        arnau.start();
-        aspas.start();
-        messi.start();
-        mbape.start();
+
+
+    
         
 
         
