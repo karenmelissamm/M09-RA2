@@ -48,7 +48,7 @@ public class Futbolista extends Thread{
             jugaF.start();
         }
         for (int i = 0; i < jugadores.length; i++) {
-            System.out.println(nomFutbolista[i]+ " -> " + jugadores[i].getNgols() + " gols");   
+            System.out.println(nomFutbolista[i] + " -> " + jugadores[i].getNgols() + " gols");   
         }
     }
 }
