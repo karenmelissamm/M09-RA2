@@ -42,16 +42,13 @@ public class Futbolista extends Thread{
         //muestra de estadisticas
         System.out.println("Inici dels xuts --------------------");
         System.out.println("Fi dels xuts -----------------------");
-        System.out.println("---Estadístiques ------");
+        System.out.println("--- Estadístiques ------");
         
         for (Futbolista jugaF:jugadores) {
             jugaF.start();
-            System.out.println(jugaF);
         }
-        for (Futbolista jugaF : jugadores) {
-            jugaF.join();
-            System.out.println(nomFutbolista + "->" + );
+        for (int i = 0; i < jugadores.length; i++) {
+            System.out.println(nomFutbolista[i]+ " -> " + jugadores[i].getNgols() + " gols");   
         }
-        
     }
 }
