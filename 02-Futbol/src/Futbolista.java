@@ -1,3 +1,5 @@
+import java.nio.channels.Pipe.SourceChannel;
+
 public class Futbolista extends Thread{
     private static final int NUM_JUGADORS=11;
     private static final int NUM_TIRADES=20;
@@ -25,19 +27,30 @@ public class Futbolista extends Thread{
     }
     @Override 
     public void run(){
-        for (int i = 0; i <=9; i++) {
-            System.out.println(getName()+" "+i);
-            long c=0;
-            for (int j = 0; j < ; c++) {
-            }
+        for (int i = 0; i <NUM_TIRADES; i++) {
+            ntirades++;
+            if(Math.random()<PROBABILITAT){
+                ngols++;
+            }    
         }
-    public static void main(String[] args) {
+    }    
+    public static void main(String[] args) throws InterruptedException {
         String [] nomFutbolista={"Pique","Vinicius","Torres","Ramos","Ronaldo","Lewan","Belli", "Arnau", "Aspas", "Messi","MBape"};
         Futbolista[] jugadores= new Futbolista[NUM_JUGADORS];
         for (int i = 0; i < NUM_JUGADORS; i++) {
             jugadores[i]=new Futbolista(nomFutbolista[i]);
-            jugadores[i].start();
+        }        
+        //muestra de estadisticas
+        System.out.println("Inici dels xuts --------------------");
+        System.out.println("Fi dels xuts -----------------------");
+        System.out.println("---Estadístiques ------");
+        for (Futbolista jugaF:jugadores) {
+            jugaF.start();
         }
+        for (Futbolista futbolista : jugadores) {
+            futbolista.join();
+        }
+
 
 
 
