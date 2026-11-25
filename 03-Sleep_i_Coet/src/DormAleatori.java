@@ -1,3 +1,5 @@
+import java.nio.channels.Pipe.SourceChannel;
+
 public class DormAleatori extends Thread {
     private final long creacion = System.currentTimeMillis();
 
@@ -25,5 +27,8 @@ public static void main(String[] args) {
     DormAleatori h2= new DormAleatori("Pep");
     h1.start();
     h2.start();
+
+    System.out.println("-- Fi de main ------------");
+
 }    
 }
