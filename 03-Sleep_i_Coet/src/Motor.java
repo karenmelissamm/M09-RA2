@@ -11,6 +11,17 @@ public class Motor extends Thread {
         this.potenciaObjectiu =p;
         this.ordres=true;
     }
+    private void simulacionMotorReal(){
+        try{
+            Thread.sleep(1000+(int) (Math.random()*1000));
+        }catch(InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+    @Override 
+    public void run(){
+        
+    }
     
 
     
