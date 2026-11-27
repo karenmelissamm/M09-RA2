@@ -17,11 +17,6 @@ public class Treballador extends Thread {
         cobrat=0.0f;
         this.rnd= new Random();
     }
-    public Treballador(int sou_anual_brut, int edat_inici_treball, int edat_fi_treball){
-        this.sou_anual_brut=sou_anual_brut;
-        this.edat_inici_treball= edat_inici_treball;
-        this.edat_fi_treball= edat_fi_treball;
-    }
 
     public int getEdat() {
         return edat_actual;
@@ -31,10 +26,12 @@ public class Treballador extends Thread {
         return cobrat;
     }
     public void cobra(){
-        cobrat=(sou_anual_brut/12);
+        cobrat+=(sou_anual_brut/12);
+
     }
     public void pagaImpostos(){
-        float impuesto=(cobrat*24)/100;
+        float impuesto=(sou_anual_brut/12)*24/100;
+        cobrat-=impuesto;
     }
 
 
