@@ -15,6 +15,7 @@ public class Treballador extends Thread {
         this.edat_fi_treball= edat_fi_treball;
         edat_actual=0;
         cobrat=0.0f;
+        this.rnd= new Random();
     }
     public Treballador(int sou_anual_brut, int edat_inici_treball, int edat_fi_treball){
         this.sou_anual_brut=sou_anual_brut;
@@ -22,29 +23,29 @@ public class Treballador extends Thread {
         this.edat_fi_treball= edat_fi_treball;
     }
 
-    public int getEdat_actual() {
+    public int getEdat() {
         return edat_actual;
     }
 
     public float getCobrat() {
         return cobrat;
     }
-    public float cobra(float cobra){
-        return cobra*12;
+    public void cobra(){
+        cobrat=(sou_anual_brut/12);
     }
-    public float pagaImpostos(float cobrat){
+    public void pagaImpostos(){
         float impuesto=(cobrat*24)/100;
-        return impuesto;
     }
 
 
     @Override 
     public void run(){
-        for (int i = edat_inici_treball; i < edat_fi_treball; i++) {
-            System.out.println(i);
+        for (int edat_actual = edat_inici_treball; edat_actual< edat_fi_treball; edat_actual++) {
+            for(int mes= 0; mes<12; mes++){
+                cobra();
+                pagaImpostos();
+            }
         }
-
+        edat_actual =edat_fi_treball;
     }
-    
-    
 }
