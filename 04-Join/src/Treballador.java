@@ -40,6 +40,9 @@ public class Treballador extends Thread {
 
     @Override 
     public void run(){
+        for (int i = edat_inici_treball; i < edat_fi_treball; i++) {
+            System.out.println(i);
+        }
 
     }
     
