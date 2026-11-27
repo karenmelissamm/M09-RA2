@@ -16,6 +16,11 @@ public class Treballador extends Thread {
         edat_actual=0;
         cobrat=0.0f;
     }
+    public Treballador(int sou_anual_brut, int edat_inici_treball, int edat_fi_treball){
+        this.sou_anual_brut=sou_anual_brut;
+        this.edat_inici_treball= edat_inici_treball;
+        this.edat_fi_treball= edat_fi_treball;
+    }
 
     public int getEdat_actual() {
         return edat_actual;
@@ -25,13 +30,14 @@ public class Treballador extends Thread {
         return cobrat;
     }
     public float cobra(float cobra){
-        return 0.0f;
+        return cobra*12;
     }
     public float pagaImpostos(float cobrat){
-        return 1.1f;
+        float impuesto=(cobrat*24)/100;
+        return impuesto;
     }
 
-    
+
     @Override 
     public void run(){
 
